@@ -1,3 +1,4 @@
+![alt text](image.png)
 # Chicken Health Detector
 
 ## Description
