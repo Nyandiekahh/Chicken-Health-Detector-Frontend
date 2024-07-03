@@ -1,71 +1,84 @@
-# Getting Started with Create React App
+# Chicken Health Detector
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Chicken Health Detector is an innovative web application that uses AI technology to detect and identify potential health issues in chickens. This tool is designed to assist poultry farmers and chicken enthusiasts in maintaining the health of their flocks through early detection of infections and diseases.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- AI-powered image analysis for detecting chicken health issues
+- User-friendly interface for easy image upload and result display
+- Educational resources on common chicken infections and preventive measures
+- Responsive design for seamless use on desktop and mobile devices
+- Animated elements for an engaging user experience
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- React Router for navigation
+- Styled Components for styling
+- Framer Motion for animations
+- Axios for API calls
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run this project locally, follow these steps:
 
-### `npm run build`
+1. Clone the repository:
+   ```
+   git clone git@github.com:Nyandiekahh/Chicken-Health-Detector-Frontend.git
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
+   ```
+   cd chicken-health-detector
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install the dependencies:
+   ```
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the development server:
+   ```
+   npm start
+   ```
 
-### `npm run eject`
+5. Open your browser and visit `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the "Detect" page.
+2. Upload an image of a chicken.
+3. Click the "Detect Health" button.
+4. View the results, including whether the image is of a chicken, if it's infected, and details about any detected infections.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API Integration
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This project requires a backend API for the AI model. Ensure you have set up the API endpoint in the `src/utils/api.js` file.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contributions to improve Chicken Health Detector are welcome. Please follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-### Analyzing the Bundle Size
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Thanks to [Giphy](https://giphy.com/gifs/happy-cartoon-chicken-Fc6IlYD9nK5x5bVpPt) for the animated chicken GIF used in the project.
+- Appreciation to all contributors and supporters of this project.
 
-### Making a Progressive Web App
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Einstein - einsteinmokua100@gmail.com
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Chicken-Health-Detector-Frontend
+Project Link: [https://github.com/Nyandiekahh/Chicken-Health-Detector-Frontend.git](https://github.com/Nyandiekahh/Chicken-Health-Detector-Frontend.git)
+```
