@@ -10,8 +10,11 @@ const UploaderContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-const FileInput = styled.input`
-  display: none;
+const Input = styled.input`
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
 `;
 
 const UploadButton = styled(motion.button)`
@@ -33,6 +36,7 @@ const Preview = styled.img`
 
 const ImageUploader = ({ onDetectionResult }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
   const [preview, setPreview] = useState(null);
 
   const handleFileChange = (event) => {
@@ -46,10 +50,22 @@ const ImageUploader = ({ onDetectionResult }) => {
     reader.readAsDataURL(file);
   };
 
+  const handleUrlChange = (event) => {
+    setImageUrl(event.target.value);
+    setPreview(event.target.value);
+  };
+
   const handleUpload = async () => {
     if (selectedFile) {
       try {
         const result = await detectChickenHealth(selectedFile);
+        onDetectionResult(result);
+      } catch (error) {
+        console.error('Error detecting chicken health:', error);
+      }
+    } else if (imageUrl) {
+      try {
+        const result = await detectChickenHealth(imageUrl);
         onDetectionResult(result);
       } catch (error) {
         console.error('Error detecting chicken health:', error);
@@ -59,24 +75,21 @@ const ImageUploader = ({ onDetectionResult }) => {
 
   return (
     <UploaderContainer>
-      <FileInput
+      <Input
         type="file"
         accept="image/*"
         onChange={handleFileChange}
-        id="file-input"
       />
-      <UploadButton
-        as="label"
-        htmlFor="file-input"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Select Image
-      </UploadButton>
+      <Input
+        type="text"
+        placeholder="Or enter image URL"
+        value={imageUrl}
+        onChange={handleUrlChange}
+      />
       {preview && <Preview src={preview} alt="Selected chicken" />}
       <UploadButton
         onClick={handleUpload}
-        disabled={!selectedFile}
+        disabled={!selectedFile && !imageUrl}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
