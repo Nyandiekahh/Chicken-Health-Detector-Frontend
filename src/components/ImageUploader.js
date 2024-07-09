@@ -1,3 +1,4 @@
+// src/components/ImageUploader.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -34,10 +35,24 @@ const Preview = styled.img`
   margin-bottom: 1rem;
 `;
 
+const ResultContainer = styled.div`
+  margin-top: 1rem;
+  text-align: center;
+`;
+
+const DetectionResult = styled.div`
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+`;
+
 const ImageUploader = ({ onDetectionResult }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const [preview, setPreview] = useState(null);
+  const [result, setResult] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -56,16 +71,10 @@ const ImageUploader = ({ onDetectionResult }) => {
   };
 
   const handleUpload = async () => {
-    if (selectedFile) {
+    if (selectedFile || imageUrl) {
       try {
-        const result = await detectChickenHealth(selectedFile);
-        onDetectionResult(result);
-      } catch (error) {
-        console.error('Error detecting chicken health:', error);
-      }
-    } else if (imageUrl) {
-      try {
-        const result = await detectChickenHealth(imageUrl);
+        const result = await detectChickenHealth(selectedFile || imageUrl);
+        setResult(result);
         onDetectionResult(result);
       } catch (error) {
         console.error('Error detecting chicken health:', error);
@@ -95,6 +104,18 @@ const ImageUploader = ({ onDetectionResult }) => {
       >
         Detect Health
       </UploadButton>
+      {result && (
+        <ResultContainer>
+          <DetectionResult>
+            <h3>Detection Result</h3>
+            <p>Is Chicken: Yes</p>
+            <p>Is Infected: Yes</p>
+            <p>Infection Type: {result.infectionType}</p>
+          </DetectionResult>
+          <h3>Detected Illness: {result.name}</h3>
+          <p>Description: {result.description}</p>
+        </ResultContainer>
+      )}
     </UploaderContainer>
   );
 };

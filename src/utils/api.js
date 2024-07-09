@@ -1,26 +1,21 @@
-import axios from 'axios';
+// src/utils/api.js
+import chickenIllnesses from './chickenIllnesses';
+import infectionTypes from './infectionTypes';
 
-const API_URL = 'YOUR_BACKEND_API_URL';
+export const detectChickenHealth = async (image) => {
+  // Simulate an API call delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-export const detectChickenHealth = async (input) => {
-  try {
-    let response;
-    if (typeof input === 'string') {
-      // It's a URL
-      response = await axios.post(`${API_URL}/detect`, { url: input });
-    } else {
-      // It's a file
-      const formData = new FormData();
-      formData.append('image', input);
-      response = await axios.post(`${API_URL}/detect`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-    }
-    return response.data;
-  } catch (error) {
-    console.error('Error detecting chicken health:', error);
-    throw error;
-  }
+  // Randomly select a chicken illness
+  const randomIllness = chickenIllnesses[Math.floor(Math.random() * chickenIllnesses.length)];
+
+  // Randomly select an infection type
+  const randomInfectionType = infectionTypes[Math.floor(Math.random() * infectionTypes.length)];
+
+  return {
+    isChicken: true,
+    isInfected: true,
+    infectionType: randomInfectionType,
+    ...randomIllness,
+  };
 };
